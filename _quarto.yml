@@ -1,0 +1,31 @@
+title: "Mechanisms for parsing speech into syllables in early infancy"
+format:
+  prezconf-revealjs:
+    self-contained: true
+    from: markdown+emoji
+    transition: fade
+    progress: true
+    preload-iframes: true
+    link-external-newwindow: true
+    #qr-code: assets/img/qr-code.png
+    github: gongcastro
+    twitter: gongcastro
+
+resources: 
+    - "assets/bran.wav"
+
+author:
+  - name: "Gonzalo Garcia-Castro"
+    orcid: 0000-0002-8553-4209
+echo: false
+warning: false
+fig-dpi: 800
+  
+bibliography: assets/references.bib
+cls: assets/apa7.csl
+scrollable: true
+show-slide-number: all
+slide-number: c
+date: "24/09/2024"
+conference: Padova Seminar presentation
+
