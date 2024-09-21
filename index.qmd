@@ -29,7 +29,7 @@ html_tag_audio <- function(file, type = c("wav")) {
 :::: {.column width=65%}
 
 * Humans develop linguistic abilities unparalelled to non-human animals
-* Some animals show certain ability to process some aspects of language [@e.g., @toro2016something]
+* Some animals show certain ability to process some aspects of language [e.g., @toro2016something]
 
 ::::
 :::: {.column width=35%}
@@ -50,38 +50,46 @@ Are common mechanisms the entry gate to human language acquisition?
 
 ## Syllabic structure
 
-
+::: {.columns}
+::: {.column}
+![](assets/structure.png)
+:::
+::: {.column}
 |Structure |Onset  |Nucleus  |Coda  |
 |----------|-------|---------|------|
 | CV       | t     |a        |      |
 | CVC      | t     |a        |n     |
 | VC       |       |a        |n     |
 | V        |       |a        |      |
-| CCCVCCCC |str    |e        |ŋgθs  |
-
-## Syllabic structure
-
-Phonotactical constraints to syllable structure vary across languages:
-
-| Structure | Japanese  | Spanish   | Italian | English | Russian |
-|-----------|-----------|-----------|---------|---------|---------|
-|V          | Yes       | Yes       | Yes     | Yes     | Yes     |
-|CV         | Yes       | Yes       | Yes     | Yes     | Yes     |
-|VC         | Sometimes | Yes       | No      | Yes     | Yes     |
-|CCV        | No        | Sometimes | No      | Yes     | Yes     |
+| CCCVCCCC |str    |e        |ngths |
+:::
+:::
 
 
+## Language-specific phonotactics constrain syllabic structure
 
-## Syllabic structure
+| Structure | Japanese     | Spanish          | English         |
+|-----------|--------------|------------------|-----------------|
+|V          | **u**.mi     | **o**.jo         | **a**.ny        |
+|CV         | **ya**.ma.ha | **ca**.sa        | **fai**.ry      | 
+|CVC        | **hon**.da   | **rin**.con      | **con**.trol    |
+|CCVC       |              | **fres**.co      | **fresh**       |
+|CCVCC      |              | **trans**.por.te | **shrink**      |
+|CCVCCC     |              |                  | **struct**.ture |
+|CCCVCCC    |              |                  | **strengths**   |
 
-colpick
+: Adapted from Özer (2024).
 
-## Syllabic structure
 
-plick
+## Universal constraints to syllabic structure
 
-lpick
+Can you syllabify this word?
 
+> /likla/
+
+Which of these syllables sound good to you?
+
+> /plick/ vs. /lpick/
 
 ## Syllable: a biologically meaningful linguistic unit?
 
@@ -91,29 +99,24 @@ lpick
 * Do newborns use MOP and SSP to detect syllable boundaries?
 * Are these mechanisms shared with non-human animals (Long-Evants rats)?
 
-
 # Maximal Onset Principle (MOP)
 
 Research line 1: neonates, infants
 
-## Maximal Onset Principle (MOP)
+## Study 1: are newborns sensitive to (violations of) the MOP
 
 Consonants are preferably grouped at syllable onset.
 
 - MOP-compliant: CV.CCV ("pe.klo")  
 - MOP-noncompliant: CVC.CV ("pok.lo")
 
-## Study 1: are neonates sensitive to (violations of) the MOP
+## Participants
 
-### Participants
-
-* ~50 healthy, hearing, full term neonates (power analyses pending) per experiment
-* Born at the Hospital SantJoan de Déu (Barcelona, Spain) some hours ago
+* ~50 healthy, hearing, full term neonates (crib testing)
+* ~50 healthy, hearing, full term 6-10 mo infant(parents lap, watching cartoons)
 * Mostly Catalan and/or Spanish linguistic background
 
-## Study 1: are newborns sensitive to (violations of) the MOP
-
-### fNIRS setup
+## fNIRS setup
 
 ::: box
 Estimating differences in concentration of oxy- and deoxy-hemoglobin in cortical regions of interest, as a proxy of neural activity in response to experimental manipulations.
@@ -125,141 +128,25 @@ Estimating differences in concentration of oxy- and deoxy-hemoglobin in cortical
 * 8 channels LH, 8 channels RH -> Bilateral temporal regions
 * Crib testing
 
-## Study 1: are newborns sensitive to (violations of) the MOP
+## Task design (fNIRS block design)
 
-### Task design (fNIRS block design)
-
-1. Familiarisation phase (~5 minutes):
+1. Familiarisation phase:
   - 10 blocks of words (20-22s silence between blocks)
   - 6 words different words in each block (0.5-1.5s silence between words)
+2. Test phase:
+  - 8 blocks of artificially segmented words: 2 Non-alt/SSP+, 2 Non-alt/SSP-, 4 Alt (20-22s silence between blocks)
+  - 12 words different words in each block (0.5-1.5s silence between words)
 
-```{r fig-task-1-familiarisation}
+---
 
-syllable_duration <- 0.25
-word_duration <- syllable_duration * 2
-boundary_duration <- 0.5
-n_blocks <- 12
-n_words <- 6
-inter_word_silence <- sample(c(0.5, 1.5), n_words, replace = TRUE)
-inter_block_silence <- sample(c(18, 22), n_blocks, replace = TRUE)
+![Familiarisation phase.](assets/fam-mop.png){width=100%}
 
-block_duration <- (n_words * word_duration) + (n_words * sum(inter_word_silence))
-blocks_silences <- block_duration + inter_block_silence
-blocks_onsets <- head(c(0, cumsum(blocks_silences)), -1)
-blocks_offsets <- blocks_onsets + block_duration
+---
 
-blocks_df <- tibble(
-  block = 1:n_blocks,
-  xpoint = rowMeans(cbind(blocks_onsets, blocks_offsets)),
-  condition = rep(c("N-Alt/MOP+", "Alt", "N-Alt/MOP-"), n_blocks / 3),
-)
-
-box_block_df <- tibble(
-  xpoint = c(
-    rbind(
-      rep(blocks_onsets, each = 2),
-      rep(blocks_offsets, each = 2)
-    )
-  ),
-  condition = rep(
-    c("N-Alt/MOP+", "Alt", "N-Alt/MOP-"),
-    times = n_blocks / 3,
-    each = 4
-  ),
-  ypoint = c(rep(c(0, 1, 1, 0), length(blocks_onsets))),
-)
-
-blocks_plot <- ggplot(
-  box_block_df,
-  aes(x = xpoint, y = ypoint, color = condition, group = 1),
-) +
-  geom_line(linewidth = 1) +
-  geom_text(
-    data = blocks_df,
-    aes(
-      x = xpoint, label = block, y = 1.2,
-      color = condition
-    ),
-    show.legend = FALSE
-  ) +
-  labs(x = "Time (s)", colour = "Condition") +
-  theme_ggdist() +
-  theme(
-    axis.title.y = element_blank(),
-    axis.ticks.y = element_blank(),
-    axis.text.y = element_blank()
-  )
-
-n_blocks_words <- 3
-inter_block_silence <- sample(c(18, 22), n_blocks_words, replace = TRUE)
-
-block_duration <- (n_words * word_duration) + (n_words * sum(inter_word_silence))
-word_silences <- word_duration + inter_word_silence
-word_onsets <- head(c(0, cumsum(word_silences)), -1)
-word_offsets <- word_onsets + word_duration
-
-words_df <- blocks_df <- tibble(
-  word = 1:(n_words * n_blocks_words),
-  xpoint = rowMeans(cbind(blocks_onsets, blocks_offsets)),
-  condition = rep(c("N-Alt/MOP+", "Alt", "N-Alt/MOP-"), n_blocks / 3),
-)
-
-box_word_df <- tibble(
-  xpoint = c(
-    rbind(
-      rep(blocks_onsets, each = 2),
-      rep(blocks_offsets, each = 2)
-    )
-  ),
-  condition = c(
-    paste0("MOP+", c(1:n_words)),
-    c(rbind(paste0("MOP-", 1:3), paste0("MOP+", 4:6))),
-    paste0("MOP-", c(4:6))
-  ),
-  ypoint = c(rep(c(0, 1, 1, 0), length(blocks_onsets))),
-)
-
-words_plot <- ggplot(
-  box_word_df,
-  aes(x = xpoint, y = ypoint, color = condition, group = 1),
-) +
-  geom_line(linewidth = 1) +
-  geom_text(
-    data = words_df,
-    aes(
-      x = xpoint, label = block, y = 1.2,
-      color = condition
-    ),
-    show.legend = FALSE
-  ) +
-  labs(x = "Time (s)", colour = "Condition") +
-  theme_ggdist() +
-  theme(
-    axis.title.y = element_blank(),
-    axis.ticks.y = element_blank(),
-    axis.text.y = element_blank()
-  )
-```
-
-## Study 1: are newborns sensitive to (violations of) the MOP
-
-### Task design (fNIRS block design)
-
-2. Test phase
-  - 8 blocks of familiarisation words, artificially segmented (500 ms silence beetween syllables):
-    * 4 non-alternating blocks: MOP-compliant syllabified words *or* MOP-noncompliant syllabified words
-    * 4 alternating blocks: MOP-compliant syllabified words *and* MOP-noncompliant syllabified words
-  - 6 words in each block
-
-* Alternating/non-alternating
-* 10 words per block, 0.5-1.5 s silence between words
-* ~28 blocks (14 alternating, 14 non-alternating, interleaved order), 25-35 s silence between blocks
+![Test phase.](assets/test-mop.png){width=100%}
 
 
-
-## Study 1: are newborns sensitive to (violations of) the MOP
-
-### Stimuli
+## Stimuli
 
 ::: box
 **CVCCV words**: Onset + Consonant cluster (CC) + Vowel
@@ -271,10 +158,7 @@ words_plot <- ggplot(
 |ro.tri       |rot.ri        |
 
 
-## Study 2: are newborns sensitive to (violations of) the MOP
-
-
-### Stimuli
+## Stimuli
 
 CV.CCV: 
 
@@ -285,9 +169,7 @@ CVC.CV:
 
 - C is phonotactical in coda in speakers' and participants' native language(s)
 
-## Study 1: are newborns sensitive to (violatios of) the MOP
-
-### Stimuli
+## Stimuli
 
 Shortlisting words:
 
@@ -299,7 +181,7 @@ Shortlisting words:
 
 Research line 2: neonates, infants, rats
 
-## Sonority Sequencing Principle (SSP)
+## Study 1: are newborns sensitive to (violations of) the MOP
 
 Syllables are predominantly a production unit: they result from a "single effort or impulse of the voice" [@whitney1874oriental].
 
@@ -404,6 +286,25 @@ praatpicture::praatpicture(
   wave_color = RColorBrewer::brewer.pal(3, "Reds")[2],
 )
 ```
+
+## Participants
+
+* ~50 healthy, hearing, full term neonates (crib testing)
+* ~50 healthy, hearing, full term 4-5 mo infant(parents lap, watching cartoons)
+* Mostly Catalan and/or Spanish linguistic background
+
+## Task design (fNIRS block design)
+
+1. Test phase:
+  - 4 blocks of artificially segmented words: 1 Non-alt/SSP+, 1 Non-alt/SSP-, 2 Alt (20-22s silence between blocks)
+  - 12 words different words in each block (0.5-1.5s silence between words)
+
+---
+
+![](assets/test-ssp.png){width=100%}
+
+---
+
 
 
 ## Feedback/pending
