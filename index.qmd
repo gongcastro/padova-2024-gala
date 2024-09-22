@@ -30,6 +30,7 @@ html_tag_audio <- function(file, type = c("wav")) {
 
 * Humans develop linguistic abilities unparalelled to non-human animals
 * Some animals show certain ability to process some aspects of language [e.g., @toro2016something]
+* Shared mechanisms: entry gate to human language acquisition?
 
 ::::
 :::: {.column width=35%}
@@ -38,9 +39,16 @@ html_tag_audio <- function(file, type = c("wav")) {
 :::
 
 ::: box
-**Gates to Language (GALA) ERC project (Chiara Santolin)**:
+**Gates to Language (GALA) ERC project (Chiara Santolin)**
+:::
 
-Are common mechanisms the entry gate to human language acquisition?
+::: {.notes}
+- Most animals develop sophisticated communicative systems
+- Only humans develop language (compositional, recursive, symbolic, etc.)
+- Some animals show near-human-level abilities in some of those domains
+- We share with non-human animals some mechanisms that support language
+- Are those mechanisms the entry gate to human language acquisition?
+- In this ERC-StG awareded to Chiara Santolin, we are going to investigate the possible role of two of those mechanisms on early language acquisition
 :::
 
 ## Syllable: a biologically meaningful linguistic unit?
@@ -48,15 +56,39 @@ Are common mechanisms the entry gate to human language acquisition?
 * The linguistic signal is continuous, and must be **segmented** into relevant discrete units (e.g., phrases, words, syllables)
 * Newborns (and adults) preferentially parse the speech signal into syllable-sized units [@bijeljac19934; @flo2022sleeping; @luo2007phase; @jusczyk1987representation; @bertoncini1988investigation]
 
+::: {.notes}
+- We are focusing on one of the first and most critical steps in language acquisition: chunking the consitnuous speech stream into discrete, linguistically relevant units.
+- Syllables seem to be specially important during the first stages of language acquisition
+- Newborns preferentially parse speech into syllables (as opposed to individual phonemes, words, or phrases)
+- What makes syllables so special? 
+:::
+
 ## Syllabic structure
 
 ::: {.columns}
-::: {.column}
+::: {.column width="40%"}
 ![](assets/structure.png)
 :::
-::: {.column}
+::: {.column width="60%"}
+:::
+:::
+
+::: {.notes}
+- The universal structure of a syllable is made of three elements
+- A mandatory nucleus: this is a high-sonority speech sound (predominantly a vowel)
+- Perhaps an onset, made of one or more consonants
+- Perhaps a coda, made of one or more consonant
+:::
+
+## Syllabic structure
+
+::: {.columns}
+::: {.column width="40%"}
+![](assets/structure.png)
+:::
+::: {.column width="60%"}
 |Structure |Onset  |Nucleus  |Coda  |
-|----------|-------|---------|------|
+|----------|:-----:|:-------:|:----:|
 | CV       | t     |a        |      |
 | CVC      | t     |a        |n     |
 | VC       |       |a        |n     |
@@ -65,8 +97,12 @@ Are common mechanisms the entry gate to human language acquisition?
 :::
 :::
 
+::: {.notes}
+- Same examples of syllables
+:::
 
-## Language-specific phonotactics constrain syllabic structure
+
+## Language-specific constraints to syllabic structure
 
 | Structure | Japanese     | Spanish          | English         |
 |-----------|--------------|------------------|-----------------|
@@ -75,10 +111,14 @@ Are common mechanisms the entry gate to human language acquisition?
 |CVC        | **hon**.da   | **rin**.con      | **con**.trol    |
 |CCVC       |              | **fres**.co      | **fresh**       |
 |CCVCC      |              | **trans**.por.te | **shrink**      |
-|CCVCCC     |              |                  | **struct**.ture |
 |CCCVCCC    |              |                  | **strengths**   |
 
 : Adapted from Özer (2024).
+
+::: {.notes}
+- Not all syllabic structures are possible in all languages
+- Some languages impose stricter phonotactical constraints on the specific sounds and number of sounds that can occur at onset or coda
+:::
 
 
 ## Universal constraints to syllabic structure
@@ -91,49 +131,80 @@ Which of these syllables sound good to you?
 
 > /plick/ vs. /lpick/
 
+::: {.notes}
+- However, some constraints to syllabic structure seem to be universal
+- Universal: most, if not all languages, show a preference for following some specific constraints
+- The aim of this project is to investigate the possible role of these universals as an early mechanism for syllabification
+:::
+
+
 ## Syllable: a biologically meaningful linguistic unit?
 
 * Two linguistic universals constrain syllabic structure:
-    - **Maximal Onset Principle (MOP)** (research line 1)
-    - **Sonority Sequencing Principle (SSP)** (research line 2)
+    - **Maximal Onset Principle (MOP)** (research line 1): consonants are preferably grouped at syllabic onset
+    - **Sonority Sequencing Principle (SSP)** (research line 2): sonority increases at onset, peaks at nucleus, decreases in coda 
 * Do newborns use MOP and SSP to detect syllable boundaries?
 * Are these mechanisms shared with non-human animals (Long-Evants rats)?
 
-# Maximal Onset Principle (MOP)
+::: {.notes}
+- We will investigate the potential role of the syllable as a biologically meaningful linguistic unit, whose perception is constrained, from birth, by two linguistic universals:
+- The Maximal Onset Principle (MOP) and the Sonority Sequencing Principle (SSP)
+- Both universals determine to a large extent the position of syllabic boundaries, and the order of the segments that make up a syllable
+- We will also investigate whether a non-human animal species (Long-Evans rats), which do not develop language, are also sensitive to any of these principles
+:::
 
-Research line 1: neonates, infants
 
-## Study 1: are newborns sensitive to (violations of) the MOP
+# Reswarch line : Maximal Onset Principle (MOP)
 
+Neonates and infants
+
+## Study 1: are newborns sensitive to (violations of) the MOP?
+
+::: box
 Consonants are preferably grouped at syllable onset.
+:::
 
 - MOP-compliant: CV.CCV ("pe.klo")  
 - MOP-noncompliant: CVC.CV ("pok.lo")
 
+::: {.notes}
+- The first universal we will investigate is the Maximal Onset Principle (MOP)
+- This principle states that "consonants" are preferably grouped at syllable onset
+- This priniple constrains the position of syllabic boundaries
+- If neonates are sensitive to violations of the MOP, it would suggest that they might be using the MOP to syllabify the speech signal from birth
+:::
+
+
 ## Participants
 
-* ~50 healthy, hearing, full term neonates (crib testing)
-* ~50 healthy, hearing, full term 6-10 mo infant(parents lap, watching cartoons)
+* ~50 healthy, hearing, full term neonates
+* ~50 healthy, hearing, full term 6-10 mo infant
 * Mostly Catalan and/or Spanish linguistic background
 
-## fNIRS setup
-
-::: box
-Estimating differences in concentration of oxy- and deoxy-hemoglobin in cortical regions of interest, as a proxy of neural activity in response to experimental manipulations.
+::: {.notes}
+- We will run an experimental series that involves neonates and infants
+- Neonates will be tested using fNIRS, while infants will be tested using fNIRS and behavioural tasks (like the HeadTurn Preference Procedure)
+- I will focus on the fNIRS testing of neonates and infants, as they follow the same task design
+- IDeally, we'd like to test up to 50 participants per experiment, although power analysis is pending
+- Most of our participants will have a Catalan and/or Spanish background
 :::
+
+
+## fNIRS setup
 
 * NIRSport2 (NIRx), NIRScap
 * Sampling frequency 20.345 Hz (~0.05 s samples)
 * CW 760 nm & 850 nm
-* 8 channels LH, 8 channels RH -> Bilateral temporal regions
-* Crib testing
+* 8 channels LH, 8 channels RH
+* ROIs: L and R temporal regions
+* Crib testing in neonates, parents' lap in infants (watching cartoons)
 
 ## Task design (fNIRS block design)
 
-1. Familiarisation phase:
+1. **Familiarisation phase**:
   - 10 blocks of words (20-22s silence between blocks)
   - 6 words different words in each block (0.5-1.5s silence between words)
-2. Test phase:
+2. **Test phase**:
   - 8 blocks of artificially segmented words: 2 Non-alt/SSP+, 2 Non-alt/SSP-, 4 Alt (20-22s silence between blocks)
   - 12 words different words in each block (0.5-1.5s silence between words)
 
@@ -167,19 +238,19 @@ CV.CCV:
 
 CVC.CV:
 
-- C is phonotactical in coda in speakers' and participants' native language(s)
+- C is allowed in coda in speakers' and participants' native language(s)
 
-## Stimuli
+## Questions
 
-Shortlisting words:
+- Natural speaker or synthesised speech (e.g., MBROLA)?
+- Variability vs. repetition? More vs. less consonant clusters
+- Linguistic experience at 8-12 months?
+- Familiarisation phase: how many blocks is enough/too much?
+- fNIRS recording during familiarisation? (e.g., capping in between phases)
 
-- Variability vs. repetition
-- Generalisability
+# Research line 2: Sonority Sequencing Principle (SSP)
 
-
-# Sonority Sequencing Principle (SSP)
-
-Research line 2: neonates, infants, rats
+Neonates, infants, Long-Evans rats
 
 ## Study 1: are newborns sensitive to (violations of) the MOP
 

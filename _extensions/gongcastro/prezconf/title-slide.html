@@ -5,42 +5,36 @@
   <p class="subtitle">$subtitle$</p>
   $endif$
   <br>
-  <div id="rectangle">
-  </div>
-  <div class="quarto-title-authors">
-    $for(by-author)$
-    <div class="quarto-title-author">
-      <div class="quarto-title-author-name">
-        $if(by-author.url)$<a href="$by-author.url$">$endif$
-          $if(by-author.name.literal)$$by-author.name.literal$$endif$
-          $if(by-author.url)$</a>$endif$
-        <br>
-      </div>
-      $if(by-author.affiliations)$
-      $for(by-author.affiliations)$
-      <p class="quarto-title-affiliation">
-        $if(it.url)$
-        <a href="$it.url$">
-          $endif$
-          $it.name$
-          $if(it.url)$
-        </a>
-        $endif$
-        $if(conference)$
-      <div class="conference">
-        <p>$conference$$if(date)$ | $date$</p>$endif$
-      </div>
-      $endif$
-      </p>
-      $endfor$
-      $endif$
-    </div>
-    $endfor$
-  </div>
+  <div id="rectangle"></div>
 
   <br>
 
   <div>
+    <div class="quarto-title-authors">
+      $for(by-author)$
+      <div class="quarto-title-author">
+        <div class="quarto-title-author-name">
+          $if(by-author.url)$$by-author.url$$endif$
+          $if(by-author.name.literal)$$by-author.name.literal$$endif$
+          $if(by-author.url)$$endif$
+          <br>
+        </div>
+        $if(by-author.affiliations)$
+        $for(by-author.affiliations)$
+        <p class="quarto-title-affiliation">
+          $if(it.url)$<a href="$it.url$"></a>$endif$
+          $it.name$
+        </p>
+        $endfor$
+        $endif$
+      </div>
+      $endfor$
+    </div>
+    $if(conference)$
+    <div class="conference">
+      <p>$conference$$if(date)$ | $date$</p>$endif$
+    </div>
+    $endif$
     <div class="media-icon" right="0">
       $if(twitter)$
       <a href="https://twitter.com/$twitter$">

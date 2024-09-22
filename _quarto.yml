@@ -10,6 +10,9 @@ format:
     #qr-code: assets/img/qr-code.png
     github: gongcastro
     twitter: gongcastro
+    date: 2024/09/24
+    conference: padova2024mop
+
 
 resources: 
     - "assets/bran.wav"
@@ -17,6 +20,10 @@ resources:
 author:
   - name: "Gonzalo Garcia-Castro"
     orcid: 0000-0002-8553-4209
+    institute: "Neurodevelopment and Comparative Cognition group"
+  - name: "Chiara Santolin"
+    institute: "Neurodevelopment and Comparative Cognition group"
+    
 echo: false
 warning: false
 fig-dpi: 800
