@@ -64,7 +64,7 @@ clrs <- c("#ea6212", "#ff001e", "#781478")
 - We are focusing on one of the first and most critical steps in language acquisition: chunking the continuous speech stream into discrete, linguistically relevant units.
 :::
 
-## The syllable: a privileged lingusitic unit?
+## The syllable: a privileged linguistic unit?
 
 Newborns (and adults) preferentially parse the speech signal into [syllable-sized units]{style="background-color: #e3e1e1;"} [e.g, @bijeljac19934; @flo2022sleeping; @luo2007phase; @jusczyk1987representation; @bertoncini1988investigation]
 
@@ -306,7 +306,7 @@ Consonants are preferably grouped at syllable onset.
 
 . . .
 
-2) Test discrimination of artificially segmented familair words as [MOP+]{style="background-color: #ea6212; color: white"} (CV.CCV) vs. [MOP-]{style="background-color: #781478; color: white"} (CVC.CV):
+2) Test discrimination of artificially segmented familiar words as [MOP+]{style="background-color: #ea6212; color: white"} (CV.CCV) vs. [MOP-]{style="background-color: #781478; color: white"} (CVC.CV):
     - 4 alternating blocks ([MOP+]{style="background-color: #ea6212; color: white"}/[MOP-]{style="background-color: #781478; color: white"})
     - 2 non-alternating blocks ([MOP+]{style="background-color: #ea6212; color: white"})
     - 2 non-alternating blocks ([MOP-]{style="background-color: #781478; color: white"})
