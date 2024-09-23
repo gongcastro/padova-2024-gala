@@ -15,13 +15,13 @@ format:
 
 
 resources: 
-    - "assets/bran.wav"
+    - "assets/enveloped_click_bran.wav"
+    - "assets/enveloped_click_lbif.wav"
+    
 
 author:
-  - name: "Gonzalo Garcia-Castro"
+  - name: "Gonzalo García-Castro"
     orcid: 0000-0002-8553-4209
-    institute: "Neurodevelopment and Comparative Cognition group"
-  - name: "Chiara Santolin"
     institute: "Neurodevelopment and Comparative Cognition group"
     
 echo: false

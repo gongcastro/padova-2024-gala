@@ -8,7 +8,8 @@ library(patchwork)
 library(praatpicture)
 library(showtext)
 
-font_add_google("Fira Code", "fira")
+font_add_google("Roboto Condensed", "Roboto")
+windowsFonts("Roboto Condensed" = windowsFont("Roboto Condensed"))
 
 html_tag_audio <- function(file, type = c("wav")) {
   type <- match.arg(type)
@@ -20,17 +21,19 @@ html_tag_audio <- function(file, type = c("wav")) {
     )
   )
 }
+
+clrs <- c("#ea6212", "#ff001e", "#781478")
 ```
 
 
-## Why only us?
+## (Why) only us?
 
 ::: columns
 :::: {.column width=65%}
 
 * Humans develop linguistic abilities unparalelled to non-human animals
-* Some animals show certain ability to process some aspects of language [e.g., @toro2016something]
-* Shared mechanisms: entry gate to human language acquisition?
+* But some animals show certain ability to process some aspects of language [e.g., @toro2016something]
+* Shared mechanisms: [entry gate to human language acquisition]{style="background-color: #e3e1e1;"}?
 
 ::::
 :::: {.column width=35%}
@@ -51,13 +54,23 @@ html_tag_audio <- function(file, type = c("wav")) {
 - In this ERC-StG awareded to Chiara Santolin, we are going to investigate the possible role of two of those mechanisms on early language acquisition
 :::
 
-## Syllable: a biologically meaningful linguistic unit?
+---
 
-* The linguistic signal is continuous, and must be **segmented** into relevant discrete units (e.g., phrases, words, syllables)
-* Newborns (and adults) preferentially parse the speech signal into syllable-sized units [@bijeljac19934; @flo2022sleeping; @luo2007phase; @jusczyk1987representation; @bertoncini1988investigation]
+## Discrete units in the continuous speech signal
+
+![From @meyer2018neural.](assets/multilevel.jpg)
 
 ::: {.notes}
-- We are focusing on one of the first and most critical steps in language acquisition: chunking the consitnuous speech stream into discrete, linguistically relevant units.
+- We are focusing on one of the first and most critical steps in language acquisition: chunking the continuous speech stream into discrete, linguistically relevant units.
+:::
+
+## The syllable: a privileged lingusitic unit?
+
+Newborns (and adults) preferentially parse the speech signal into [syllable-sized units]{style="background-color: #e3e1e1;"} [e.g, @bijeljac19934; @flo2022sleeping; @luo2007phase; @jusczyk1987representation; @bertoncini1988investigation]
+
+![From @flo2022sleeping.](assets/entrainment.png)
+
+::: {.notes}
 - Syllables seem to be specially important during the first stages of language acquisition
 - Newborns preferentially parse speech into syllables (as opposed to individual phonemes, words, or phrases)
 - What makes syllables so special? 
@@ -89,11 +102,10 @@ html_tag_audio <- function(file, type = c("wav")) {
 ::: {.column width="60%"}
 |Structure |Onset  |Nucleus  |Coda  |
 |----------|:-----:|:-------:|:----:|
+| V        |       |a        |      |
 | CV       | t     |a        |      |
 | CVC      | t     |a        |n     |
 | VC       |       |a        |n     |
-| V        |       |a        |      |
-| CCCVCCCC |str    |e        |ngths |
 :::
 :::
 
@@ -106,12 +118,12 @@ html_tag_audio <- function(file, type = c("wav")) {
 
 | Structure | Japanese     | Spanish          | English         |
 |-----------|--------------|------------------|-----------------|
-|V          | **u**.mi     | **o**.jo         | **a**.ny        |
-|CV         | **ya**.ma.ha | **ca**.sa        | **fai**.ry      | 
-|CVC        | **hon**.da   | **rin**.con      | **con**.trol    |
-|CCVC       |              | **fres**.co      | **fresh**       |
-|CCVCC      |              | **trans**.por.te | **shrink**      |
-|CCCVCCC    |              |                  | **strengths**   |
+|V          | [u]{style="background-color: #e3e1e1;"}.mi     | [o]{style="background-color: #e3e1e1;"}.jo         | [a]{style="background-color: #e3e1e1;"}.ny        |
+|CV         | [ya]{style="background-color: #e3e1e1;"}.ma.ha | [ca]{style="background-color: #e3e1e1;"}.sa        | [fai]{style="background-color: #e3e1e1;"}.ry      | 
+|CVC        | [hon]{style="background-color: #e3e1e1;"}.da   | [rin]{style="background-color: #e3e1e1;"}.cón      | [con]{style="background-color: #e3e1e1;"}.trol    |
+|CCVC       |              | [fres]{style="background-color: #e3e1e1;"}.co      | [fresh]{style="background-color: #e3e1e1;"}       |
+|CCVCC      |              | [trans]{style="background-color: #e3e1e1;"}.por.te | [shrink]{style="background-color: #e3e1e1;"}     |
+|CCCVCCC    |              |                  | [strengths]{style="background-color: #e3e1e1;"}   |
 
 : Adapted from Özer (2024).
 
@@ -123,13 +135,20 @@ html_tag_audio <- function(file, type = c("wav")) {
 
 ## Universal constraints to syllabic structure
 
-Can you syllabify this word?
+Can you chunk this word into syllables?
 
 > /likla/
 
-Which of these syllables sound good to you?
+. . .
 
-> /plick/ vs. /lpick/
+::: box
+**Maximal Onset Principle (MOP)**:
+
+Consonants are preferably grouped at syllabic onset
+:::
+
+* [MOP+]{style="background-color: #ea6212; color: white"}: CV.CCV - /li.kla/
+* [MOP-]{style="background-color: #781478; color: white"}: CVC.CV - /lik.la/
 
 ::: {.notes}
 - However, some constraints to syllabic structure seem to be universal
@@ -137,26 +156,100 @@ Which of these syllables sound good to you?
 - The aim of this project is to investigate the possible role of these universals as an early mechanism for syllabification
 :::
 
+## Universal constraints to syllabic structure
 
-## Syllable: a biologically meaningful linguistic unit?
+Which of these syllables sound good to you?
 
-* Two linguistic universals constrain syllabic structure:
-    - **Maximal Onset Principle (MOP)** (research line 1): consonants are preferably grouped at syllabic onset
-    - **Sonority Sequencing Principle (SSP)** (research line 2): sonority increases at onset, peaks at nucleus, decreases in coda 
-* Do newborns use MOP and SSP to detect syllable boundaries?
-* Are these mechanisms shared with non-human animals (Long-Evants rats)?
+> /blif/ vs. /lbif/
+
+. . .
+
+::: box
+**Sonority Sequencing Principle (SSP)**:
+
+Sonority increases at onset, peaks at nucleus, decreases in coda
+:::
+
+```{r fig-ssp-blif}
+#| label: fig-ssp-blif
+#| fig-height: 1.5
+#| fig-width: 6
+tribble(
+  ~position, ~phoneme, ~sonority,
+  "Onset", "b", 4,
+  "Onset", "l", 10,
+  "Nucleus", "i", 17,
+  "Coda", "f", 7
+) |>
+  mutate(phoneme = factor(phoneme, levels = phoneme, ordered = TRUE)) |>
+  ggplot(aes(phoneme, sonority, fill = reorder(position, desc(position)))) +
+  geom_col(colour = "white") +
+  geom_line(aes(group = 1)) +
+  geom_point(show.legend = FALSE) +
+  tribble(
+    ~position, ~phoneme, ~sonority,
+    "Onset", "l", 10,
+    "Onset", "b", 4,
+    "Nucleus", "i", 15,
+    "Coda", "f", 7
+  ) |>
+  mutate(phoneme = factor(phoneme, levels = phoneme, ordered = TRUE)) |>
+  ggplot(aes(phoneme, sonority, fill = reorder(position, desc(position)))) +
+  geom_col(colour = "white") +
+  geom_line(aes(group = 1)) +
+  geom_point(show.legend = FALSE) +
+  theme(axis.title.y = element_blank()) +
+  plot_layout(nrow = 1, guides = "collect") &
+  labs(x = "Phoneme", y = "Sonority Index") &
+  scale_fill_manual(values = clrs) &
+  theme_ggdist(base_family = windowsFonts()$`Roboto Condensed`) &
+  theme(
+    legend.position = "right",
+    axis.title.x = element_blank(),
+    legend.title = element_blank(),
+    plot.background = element_rect(fill = NA)
+  )
+```
 
 ::: {.notes}
-- We will investigate the potential role of the syllable as a biologically meaningful linguistic unit, whose perception is constrained, from birth, by two linguistic universals:
-- The Maximal Onset Principle (MOP) and the Sonority Sequencing Principle (SSP)
+- However, some constraints to syllabic structure seem to be universal
+- Universal: most, if not all languages, show a preference for following some specific constraints
 - Both universals determine to a large extent the position of syllabic boundaries, and the order of the segments that make up a syllable
+:::
+
+
+
+## The Gates to Language (GALA) project
+
+* Do newborns use MOP and SSP to detect syllable boundaries?
+
+> Syllables as an entry gate to language
+
+. . .
+
+* Are these mechanisms shared with non-human animals? (e.g., production)
+
+> Syllables as philogenetically relevant linguistic units
+
+. . .
+
+Two lines of research: MOP and SSP
+
+Neonates (fNIRS), infants (fNIRS, eye-tracking, behaviour), adults (behavioural), Long-Evans rats (behavioural)
+
+
+::: {.notes}
+- The aim of this project is to investigate:
+  1) The possible role of these universals as an early mechanism for syllabification
+  2) The extent to which these mechanisms are shared with other non-human animals
+- The Maximal Onset Principle (MOP) and the Sonority Sequencing Principle (SSP)
 - We will also investigate whether a non-human animal species (Long-Evans rats), which do not develop language, are also sensitive to any of these principles
 :::
 
 
-# Reswarch line : Maximal Onset Principle (MOP)
+# Maximal Onset Principle (MOP)
 
-Neonates and infants
+Research line 1
 
 ## Study 1: are newborns sensitive to (violations of) the MOP?
 
@@ -164,81 +257,87 @@ Neonates and infants
 Consonants are preferably grouped at syllable onset.
 :::
 
-- MOP-compliant: CV.CCV ("pe.klo")  
-- MOP-noncompliant: CVC.CV ("pok.lo")
+* [MOP+]{style="background-color: #ea6212; color: white"}: CV.CCV - /li.kla/  
+* [MOP-]{style="background-color: #781478; color: white"}: CVC.CV - /lik.la/
 
 ::: {.notes}
 - The first universal we will investigate is the Maximal Onset Principle (MOP)
 - This principle states that "consonants" are preferably grouped at syllable onset
-- This priniple constrains the position of syllabic boundaries
+- This principle constrains the position of syllabic boundaries
 - If neonates are sensitive to violations of the MOP, it would suggest that they might be using the MOP to syllabify the speech signal from birth
 :::
 
 
 ## Participants
 
-* ~50 healthy, hearing, full term neonates
-* ~50 healthy, hearing, full term 6-10 mo infant
+* Hearing, full term neonates (fNIRS) and 6-10 mo infants (fNIRS + behavioural)
+* Born/living in the Metropolitan Area of Barcelona (Spain)
 * Mostly Catalan and/or Spanish linguistic background
 
 ::: {.notes}
 - We will run an experimental series that involves neonates and infants
 - Neonates will be tested using fNIRS, while infants will be tested using fNIRS and behavioural tasks (like the HeadTurn Preference Procedure)
 - I will focus on the fNIRS testing of neonates and infants, as they follow the same task design
-- IDeally, we'd like to test up to 50 participants per experiment, although power analysis is pending
+- Ideally, we'd like to test up to 50 participants per experiment, although power analysis is pending
 - Most of our participants will have a Catalan and/or Spanish background
 :::
 
 
 ## fNIRS setup
 
-* NIRSport2 (NIRx), NIRScap
+* NIRSport2 (NIRx), CW 760 nm & 850 nm
 * Sampling frequency 20.345 Hz (~0.05 s samples)
-* CW 760 nm & 850 nm
-* 8 channels LH, 8 channels RH
+* NIRScap: 8 channels LH, 8 channels RH
 * ROIs: L and R temporal regions
 * Crib testing in neonates, parents' lap in infants (watching cartoons)
+* MNE-NIRS (Python): (1) OD, (2) motion correction (TDDR), (3) band-pass filtering, (4) block segmentation, (5) block averaging, (6) block rejection, (7) participant rejection.
 
 ## Task design (fNIRS block design)
 
-1. **Familiarisation phase**:
-  - 10 blocks of words (20-22s silence between blocks)
-  - 6 words different words in each block (0.5-1.5s silence between words)
-2. **Test phase**:
-  - 8 blocks of artificially segmented words: 2 Non-alt/SSP+, 2 Non-alt/SSP-, 4 Alt (20-22s silence between blocks)
-  - 12 words different words in each block (0.5-1.5s silence between words)
+**Familiarisation/discrimination task:**
 
----
-
-![Familiarisation phase.](assets/fam-mop.png){width=100%}
-
----
-
-![Test phase.](assets/test-mop.png){width=100%}
-
+1) Familiarise participants with disyllabic CVCCV words
+    - 10 blocks, 6 words each
+2) Test discrimination of artificially segmented familair words as [MOP+]{style="background-color: #ea6212; color: white"} (CV.CCV) vs. [MOP-]{style="background-color: #781478; color: white"} (CVC.CV):
+    - 4 alternating blocks ([MOP+]{style="background-color: #ea6212; color: white"}/[MOP-]{style="background-color: #781478; color: white"})
+    - 2 non-alternating blocks ([MOP+]{style="background-color: #ea6212; color: white"})
+    - 2 non-alternating blocks ([MOP-]{style="background-color: #781478; color: white"})
 
 ## Stimuli
 
 ::: box
-**CVCCV words**: Onset + Consonant cluster (CC) + Vowel
+**CVCCV words**: Onset + Vowel + Consonant cluster (CC) + Vowel
 :::
 
-| Follows MOP (CV.CCV) | Violates MOP (CVC.CV)|
-|-------------|--------------|
-|pa.kla       |pak.la        |
-|ro.tri       |rot.ri        |
+::: columns
+:::: {.column width="40%"}
+| [MOP+]{style="background-color: #ea6212; color: white"} (CV.CCV) | [MOP-]{style="background-color: #781478; color: white"} (CVC.CV)|
+|:-------------:|:------------:|
+|li.kla         |lik.la        |
+|ro.tri         |rot.ri        |
+|po.glu         |pog.lu        |
 
+::::
+:::: {.column width="60%"}
+Some constraints:
 
-## Stimuli
+- [MOP+]{style="background-color: #ea6212; color: white"}: CC follows **SSP**
+- [MOP+]{style="background-color: #ea6212; color: white"}: CC is phonotactical at onset in speakers' and participants' native language(s)
+- [MOP-]{style="background-color: #781478; color: white"}: C is allowed in coda in speakers' and participants' native language(s)
+::::
+:::
 
-CV.CCV: 
+---
 
-- CC follows the Sonority Sequencing Principle (SSP)
-- CC is phonotactical at onset in speakers' and participants' native language(s)
+### Familiarisation phase
 
-CVC.CV:
+![](assets/fam-mop.png){width=100%}
 
-- C is allowed in coda in speakers' and participants' native language(s)
+---
+
+### Test phase
+
+![](assets/test-mop.png){width=100%}
 
 ## Questions
 
@@ -248,21 +347,42 @@ CVC.CV:
 - Familiarisation phase: how many blocks is enough/too much?
 - fNIRS recording during familiarisation? (e.g., capping in between phases)
 
-# Research line 2: Sonority Sequencing Principle (SSP)
+# Sonority Sequencing Principle (SSP)
 
-Neonates, infants, Long-Evans rats
+Research line 2
 
-## Study 1: are newborns sensitive to (violations of) the MOP
+## Study 2: are newborns sensitive to (violations of) the SSP?
 
-Syllables are predominantly a production unit: they result from a "single effort or impulse of the voice" [@whitney1874oriental].
+::: columns
+:::: {.column width="40%" .incremental}
 
-> In a syllable, sonority increases toward the peak and decreases toward the margins [@morelli2003relative].
+Syllables are predominantly a production unit: they result from a "single effort or impulse of the voice." [@whitney1874oriental]
 
-Most animal vocalisations follow this sonority pattern -> Evolutionary relevance -> Ancentral, inherited mechanism for perception?
+::::
+:::: {.column width="60%"}
+The biomecanics of the phonatory system constrain the properties of the acoustic signal of (exhalated) animal vocalisations.
 
-```{r bran-audio}
-html_tag_audio("assets/bran.wav", type = "wav")
-```
+![From @tierney2011motor](assets/birds.png)
+::::
+:::
+
+
+> In a syllable, sonority increases toward the peak and decreases toward the margins. [@morelli2003relative]
+
+## Study 2: are newborns sensitive to (violations of) the SSP?
+
+**Proposal**:
+
+1) Syllables are biologically relevant linguistic units
+2) Language processing at birth is constrained by phylogenetically acquired perception mechanisms (e.g., SSP)
+
+**Hypotheses**:
+
+* Neonates are sensitive to (violations of) the SSP
+* Long-Evans rats are sensitive to (violations of) the SSP
+* This sensitivity plays a role beyond language (non-linguistic sounds)
+
+---
 
 ```{r fig-ssp-bran}
 #| label: fig-ssp-bran
@@ -280,8 +400,9 @@ tribble(
   ggplot(aes(phoneme, sonority, fill = reorder(position, desc(position)))) +
   geom_col(colour = "white") +
   geom_line(aes(group = 1)) +
+  geom_point(show.legend = FALSE) +
   labs(x = "Phoneme", y = "Sonority Index") +
-  scale_fill_brewer(palette = "Reds") +
+  scale_fill_manual(values = clrs) +
   theme_ggdist() +
   theme(
     legend.position = "top",
@@ -327,8 +448,9 @@ tribble(
   ggplot(aes(phoneme, sonority, fill = reorder(position, desc(position)))) +
   geom_col(colour = "white") +
   geom_line(aes(group = 1)) +
+  geom_point(show.legend = TRUE) +
   labs(x = "Phoneme", y = "Sonority Index") +
-  scale_fill_brewer(palette = "Reds") +
+  scale_fill_manual(values = clrs) +
   theme_ggdist() +
   theme(
     legend.position = "top",
@@ -360,14 +482,33 @@ praatpicture::praatpicture(
 
 ## Participants
 
-* ~50 healthy, hearing, full term neonates (crib testing)
-* ~50 healthy, hearing, full term 4-5 mo infant(parents lap, watching cartoons)
+* Hearing, full term neonates (fNIRS) and 6-10 mo infants (fNIRS + behavioural)
+* Born/living in the Metropolitan Area of Barcelona (Spain)
 * Mostly Catalan and/or Spanish linguistic background
+
+## Stimuli
+
+From @schutsch2024sensory:
+
+* List of [SSP+]{style="background-color: #ea6212; color: white"} (e.g., *blif* and [SSP-]{style="background-color: #781478; color: white"} (e.g., *lbif*) CCVC syllables
+* For each syllable:
+  - Chunk acoustic signal into segments (x4 phonemes)
+  - Calculate average F0/F1/F2 of each segment
+  - Synthesise pure tone based on extracted pitch for each segment
+  - Apply amplitude envelope of original audio
+
+```{r}
+html_tag_audio("assets/enveloped_click_bran.wav")
+```
+
+```{r}
+html_tag_audio("assets/enveloped_click_lbif.wav")
+```
 
 ## Task design (fNIRS block design)
 
 1. Test phase:
-  - 4 blocks of artificially segmented words: 1 Non-alt/SSP+, 1 Non-alt/SSP-, 2 Alt (20-22s silence between blocks)
+  - 4 blocks of artificially segmented words: 1 Non-alt/[SSP+]{style="background-color: #ea6212; color: white"}, 1 Non-alt/[SSP-]{style="background-color: #781478; color: white"}, 2 Alt (20-22s silence between blocks)
   - 12 words different words in each block (0.5-1.5s silence between words)
 
 ---
@@ -376,9 +517,13 @@ praatpicture::praatpicture(
 
 ---
 
+## Questions
 
+- Discriminability of [SSP+]{style="background-color: #ea6212; color: white"}/[SSP-]{style="background-color: #781478; color: white"}: amplitude vs. pitch salience?
+    + Adult experiment, artificial neural network?
+    
+## {background-image="assets/thanks.png"}
 
-## Feedback/pending
+## References
 
-## Thanks
 
