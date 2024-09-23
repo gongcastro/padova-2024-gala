@@ -233,10 +233,6 @@ tribble(
 
 . . .
 
-Two lines of research: MOP and SSP
-
-Neonates (fNIRS), infants (fNIRS, eye-tracking, behaviour), adults (behavioural), Long-Evans rats (behavioural)
-
 
 ::: {.notes}
 - The aim of this project is to investigate:
@@ -245,6 +241,15 @@ Neonates (fNIRS), infants (fNIRS, eye-tracking, behaviour), adults (behavioural)
 - The Maximal Onset Principle (MOP) and the Sonority Sequencing Principle (SSP)
 - We will also investigate whether a non-human animal species (Long-Evans rats), which do not develop language, are also sensitive to any of these principles
 :::
+
+## The Gates to Language (GALA) project
+
+Two lines of research: MOP and SSP
+
+* Neonates (fNIRS)
+* Infants (fNIRS, eye-tracking, behaviour)
+* Adults (behavioural)
+* Long-Evans rats (behavioural)
 
 
 # Maximal Onset Principle (MOP)
@@ -358,6 +363,8 @@ Research line 2
 
 Syllables are predominantly a production unit: they result from a "single effort or impulse of the voice." [@whitney1874oriental]
 
+> In a syllable, sonority increases toward the peak and decreases toward the margins. [@morelli2003relative]
+
 ::::
 :::: {.column width="60%"}
 The biomecanics of the phonatory system constrain the properties of the acoustic signal of (exhalated) animal vocalisations.
@@ -367,16 +374,15 @@ The biomecanics of the phonatory system constrain the properties of the acoustic
 :::
 
 
-> In a syllable, sonority increases toward the peak and decreases toward the margins. [@morelli2003relative]
 
 ## Study 2: are newborns sensitive to (violations of) the SSP?
 
-**Proposal**:
+[Proposal]{style="background-color: #e3e1e1;}:
 
 1) Syllables are biologically relevant linguistic units
 2) Language processing at birth is constrained by phylogenetically acquired perception mechanisms (e.g., SSP)
 
-**Hypotheses**:
+[Hypotheses]{style="background-color: #e3e1e1;}:
 
 * Neonates are sensitive to (violations of) the SSP
 * Long-Evans rats are sensitive to (violations of) the SSP
