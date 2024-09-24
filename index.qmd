@@ -32,7 +32,7 @@ clrs <- c("#ea6212", "#ff001e", "#781478")
 :::: {.column width=65%}
 
 * Humans develop linguistic abilities unparalelled to non-human animals
-* But some animals show certain ability to process some aspects of language [e.g., @toro2016something]
+* But some animals show certain ability to process some aspects of language [e.g., @christiansen2003language; @fitch2018biology; @santolin2018constraints; @petkov2020structured; @toro2016something]
 * Shared mechanisms: [entry gate to human language acquisition]{style="background-color: #e3e1e1;"}?
 
 ::::
@@ -221,7 +221,7 @@ tribble(
 
 ## The Gates to Language (GALA) project
 
-* Do newborns use MOP and SSP to detect syllable boundaries?
+* Do newborns rely on MOP and SSP to detect syllable boundaries?
 
 > Syllables as an entry gate to language
 
@@ -229,7 +229,7 @@ tribble(
 
 * Are these mechanisms shared with non-human animals? (e.g., production)
 
-> Syllables as philogenetically relevant linguistic units
+> Syllables as phylogenetically relevant linguistic units
 
 . . .
 
@@ -297,19 +297,18 @@ Consonants are preferably grouped at syllable onset.
 * Crib testing in neonates, parents' lap in infants (watching cartoons)
 * MNE-NIRS (Python): (1) OD, (2) motion correction (TDDR), (3) band-pass filtering, (4) block segmentation, (5) block averaging, (6) block rejection, (7) participant rejection.
 
-## Task design (fNIRS block design)
+## Proposed block design (feed-back!)
 
 **Familiarisation/discrimination task:**
 
 1) Familiarise participants with disyllabic CVCCV words
-    - 10 blocks, 6 words each
+    - 10 blocks, 6 words each (working on generating as many words as possible)
 
 . . .
 
 2) Test discrimination of artificially segmented familiar words as [MOP+]{style="background-color: #ea6212; color: white"} (CV.CCV) vs. [MOP-]{style="background-color: #781478; color: white"} (CVC.CV):
     - 4 alternating blocks ([MOP+]{style="background-color: #ea6212; color: white"}/[MOP-]{style="background-color: #781478; color: white"})
-    - 2 non-alternating blocks ([MOP+]{style="background-color: #ea6212; color: white"})
-    - 2 non-alternating blocks ([MOP-]{style="background-color: #781478; color: white"})
+    - 4 non-alternating blocks (2 [MOP+]{style="background-color: #ea6212; color: white"} blocks, 2 [MOP-]{style="background-color: #781478; color: white"} blocks)
 
 ## Stimuli
 
@@ -361,12 +360,10 @@ Some constraints:
 
 Research line 2
 
-## Study 2: are newborns sensitive to (violations of) the SSP?
+## Study 2: testing the sensory basis of the SSP in non-linguistic inputs
 
 ::: columns
 :::: {.column width="40%" .incremental}
-
-Syllables are predominantly a production unit: they result from a "single effort or impulse of the voice." [@whitney1874oriental]
 
 > In a syllable, sonority increases toward the peak and decreases toward the margins. [@morelli2003relative]
 
@@ -380,20 +377,19 @@ The biomecanics of the phonatory system constrain the properties of the acoustic
 
 
 
-## Study 2: are newborns sensitive to (violations of) the SSP?
+## Study 2: testing the sensory basis of the SSP in non-linguistic inputs
 
 [Proposal]{style="background-color: #e3e1e1;"}:
 
 1) Syllables are biologically relevant linguistic units
-2) Language processing at birth is constrained by phylogenetically acquired perception mechanisms (e.g., SSP)
+2) Language processing at birth is constrained by phylogenetically acquired perception mechanisms (e.g., SSP) [@gomez2014language]
 
 . . .
 
 [Hypotheses]{style="background-color: #e3e1e1;"}:
 
-* Neonates are sensitive to (violations of) the SSP
-* Long-Evans rats are sensitive to (violations of) the SSP
-* This sensitivity plays a role beyond language (non-linguistic sounds)
+* Sensitivity to SSP plays a role beyond language (non-linguistic sounds)
+* Non-human animals (Long-Evans rats) are sensitive to (violations of) the SSP
 
 ---
 
@@ -503,7 +499,7 @@ praatpicture::praatpicture(
 
 From @schutsch2024sensory:
 
-* List of [SSP+]{style="background-color: #ea6212; color: white"} (e.g., *blif* and [SSP-]{style="background-color: #781478; color: white"} (e.g., *lbif*) CCVC syllables
+* List of [SSP+]{style="background-color: #ea6212; color: white"} (e.g., *blif*) and [SSP-]{style="background-color: #781478; color: white"} (e.g., *lbif*) CCVC syllables
 * For each syllable:
   - Chunk acoustic signal into segments (x4 phonemes)
   - Calculate average F0/F1/F2 of each segment
@@ -521,8 +517,10 @@ html_tag_audio("assets/enveloped_click_lbif.wav")
 ## Task design (fNIRS block design)
 
 1. Test phase:
-  - 4 blocks of artificially segmented words: 1 Non-alt/[SSP+]{style="background-color: #ea6212; color: white"}, 1 Non-alt/[SSP-]{style="background-color: #781478; color: white"}, 2 Alt (20-22s silence between blocks)
-  - 12 words different words in each block (0.5-1.5s silence between words)
+  - 4 blocks of strings of tones (20-22s silence between blocks):
+      + 2 non-alternating ([SSP+]{style="background-color: #ea6212; color: white"} *or* [SSP-]{style="background-color: #781478; color: white"})
+      + 2 Alt ([SSP+]{style="background-color: #ea6212; color: white"} *and* [SSP-]{style="background-color: #781478; color: white"})
+  - 12 strings of pure tones different words in each block (0.5-1.5s silence between words)
 
 ---
 
